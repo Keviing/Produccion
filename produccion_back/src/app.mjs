@@ -30,6 +30,11 @@ sequelize.sync()
   .then(() => {
     console.log('Todas las tablas se crearon correctamente');
     
+    import('./models/relations.mjs').then(({ default: relations }) => {
+      console.log('Relaciones establecidas correctamente');
+      console.log('Relaciones establecidas correctamente');
+    })
+    
     // Inicia el servidor
     const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => {
