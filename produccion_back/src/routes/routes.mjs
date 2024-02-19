@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { obtenerProveedores, crearProveedor } from "../controllers/proveedorControllers.mjs";
+import { obtenerProveedores, crearProveedor, eliminarProveedor, editarProveedor } from "../controllers/proveedorControllers.mjs";
 import { obtenerProductos, crearProducto, eliminarProducto, editarProducto } from "../controllers/productoControllers.mjs";
 const router = Router();
 
@@ -10,7 +10,8 @@ router.get("/", (req, res) =>{
 // Proveedores
 router.get("/proveedores",obtenerProveedores);
 router.post("/proveedores",crearProveedor);
-
+router.delete('/proveedores/:id', eliminarProveedor); // Eliminar un producto por su ID
+router.put('/proveedores/:id', editarProveedor); 
 //PRODUCTOS 
 router.get("/productos",obtenerProductos);
 router.post("/productos",crearProducto);
