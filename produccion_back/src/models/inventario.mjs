@@ -24,8 +24,8 @@ const Inventario = sequelize.define('Inventario', {
   },
   stock: Sequelize.INTEGER,
   ubicacion_en_bodega: Sequelize.STRING,
-  fecha_entrada: Sequelize.DATE,
-  fecha_caducidad: Sequelize.DATE
+  fecha_entrada: { type: Sequelize.DATEONLY }, // Cambiar a DATEONLY para solo fecha
+  fecha_caducidad: { type: Sequelize.DATEONLY } // Cambiar a DATEONLY para solo fecha
 },{
     tableName: 'Inventario'
   });
