@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 
 // Configuración de la base de datos
-const sequelize = new Sequelize('produccion', 'root', '', {
+const sequelize = new Sequelize('pruebakevin', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
 });
