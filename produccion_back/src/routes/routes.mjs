@@ -5,7 +5,7 @@ import { obtenerTiposBodega, crearTipoBodega } from "../controllers/tipoBodegaCo
 import { obtenerResponsablesBodega, crearResponsableBodega } from "../controllers/responsableBodegaControllers.mjs";
 import { obtenerBodegas, crearBodega, eliminarBodega, editarBodega } from "../controllers/bodegaControllers.mjs";
 import { obtenerInventarios, crearInventario, eliminarInventario, editarInventario } from "../controllers/inventarioControllers.mjs";
-
+import { generarReporte } from "../controllers/reporteController.mjs";
 const router = Router();
 
 router.get("/", (req, res) =>{
@@ -38,5 +38,6 @@ router.get("/inventarios",obtenerInventarios);
 router.post("/inventarios",crearInventario);
 router.delete('/inventarios/:id', eliminarInventario); // Eliminar un inventario por su ID
 router.put('/inventarios/:id', editarInventario); 
-
+//REPORTE
+router.get('/reporte', generarReporte);
 export default router;

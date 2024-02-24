@@ -52,3 +52,11 @@ export const editarProducto = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+export const fetchProductos = async () => {
+  try {
+    return await Producto.findAll({ include: { model: Proveedor } });
+  } catch (error) {
+    throw error;
+  }
+};

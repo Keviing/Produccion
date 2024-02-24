@@ -10,8 +10,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(router);
 
-
-
 // Establecer conexión a la base de datos y sincronizar modelos
 sequelize.authenticate()
   .then(() => {

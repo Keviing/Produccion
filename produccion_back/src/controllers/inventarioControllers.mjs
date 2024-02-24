@@ -16,6 +16,7 @@ export const obtenerInventarios = async (req, res) => {
   }
 };
 
+
 export const crearInventario = async (req, res) => {
   try {
     const inventario = await Inventario.create(req.body);
@@ -54,5 +55,24 @@ export const editarInventario = async (req, res) => {
     res.json({ message: 'Inventario actualizado correctamente' });
   } catch (error) {
     res.status(500).send(error.message);
+  }
+};
+
+export const fetchInventarios = async () => {
+  try {
+    return await Inventario.findAll({
+      include: [
+        {
+          model: Producto,
+          attributes: ['nombre_producto'], // Asumiendo que el atributo se llama 'nombre_producto' en tu modelo Producto
+        },
+        {
+          model: Bodega,
+          attributes: ['nombre_bodega'], // Asumiendo que el atributo se llama 'nombre_bodega' en tu modelo Bodega
+        }
+      ]
+    });
+  } catch (error) {
+    throw error;
   }
 };
